@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Hari Pacar 💖</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #7b1fa2, #e91e63, #880e4f);
+      background-size: cover;
+      background-attachment: fixed;
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .tulis-indah {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    }
+
+    .kartu-lembut {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+    .kotak-amplop {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .kotak-amplop:hover { transform: scale(1.05); }
+
+    .kartu-pilihan {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: melayangMasuk 0.6s ease forwards;
+    }
+    .kartu-pilihan:nth-child(1) { animation-delay: 0.1s; }
+    .kartu-pilihan:nth-child(2) { animation-delay: 0.25s; }
+    .kartu-pilihan:nth-child(3) { animation-delay: 0.4s; }
+    .kartu-pilihan:nth-child(4) { animation-delay: 0.55s; }
+
+    @keyframes melayangMasuk {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .kartu-pilihan:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-5px);
+    }
+    .ikon-pilihan {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: #ffd1dc;
+    }
+
+    .bingkai-foto {
+      background: white;
+      padding: 10px 10px 25px 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transform: rotate(-3deg);
+      transition: transform 0.3s ease;
+    }
+    .bingkai-foto:hover {
+      transform: rotate(0deg) scale(1.05);
+      z-index: 10;
+    }
+    .bingkai-foto img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .bingkai-video {
+      background: white;
+      padding: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+    .bingkai-video:hover { transform: scale(1.03); }
+    .bingkai-video video, .bingkai-video iframe { border-radius: 8px; }
+
+    .tombol-kembali {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #4caf50;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .tombol-kembali:hover { background-color: #45a049; color: white; }
+
+    .halaman { display: none; }
+    .halaman.aktif {
+      display: block;
+      animation: muncul 0.5s ease-in-out;
+    }
+    @keyframes muncul {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="d-flex align-items-center justify-content-center p-3">
+
+  <div class="container text-center position-relative" style="max-width: 800px;">
+
+    <!-- HALAMAN 1: BUKA AMPLOP -->
+    <div id="halaman1" class="halaman aktif">
+      <h1 class="tulis-indah mb-4">Ketuk Amplop Ini 💌</h1>
+      <div class="kotak-amplop d-inline-block my-4" onclick="bukaHalaman('halaman2')">
+        <div class="kartu-lembut p-4 d-flex flex-column align-items-center justify-content-center" style="width: 250px; height: 180px; background: rgba(255,255,255,0.9);">
+          <i class="fa-solid fa-envelope-open-text fa-5x text-danger"></i>
+          <span class="badge bg-danger rounded-pill mt-2">01.10.2026</span>
+        </div>
+      </div>
+      <p class="fst-italic opacity-75 mt-2">tekan untuk melanjutkan</p>
+    </div>
+
+    <!-- HALAMAN 2: UCAPAN UTAMA -->
+    <div id="halaman2" class="halaman">
+      <div class="kartu-lembut p-4 text-center">
+        <h1 class="tulis-indah">Selamat Hari Pacar 💝</h1>
+        <p class="badge bg-light text-dark px-3 py-2 fs-6">01 Oktober 2026</p>
+        <div class="my-4">
+          <i class="fa-solid fa-heart text-danger fa-4x"></i>
+        </div>
+        <button class="btn btn-light rounded-pill px-4 py-2 fw-bold text-danger shadow" onclick="bukaHalaman('halaman3')">
+          TEKAN UNTUK KEJUTAN 🎁
+        </button>
+      </div>
+    </div>
+
+    <!-- HALAMAN 3: PILIH KEJUTAN + ANIMASI ✨ -->
+    <div id="halaman3" class="halaman">
+      <h1 class="tulis-indah mb-4">Pilih Kejutan Kamu ✨</h1>
+      <div class="row g-3 justify-content-center">
+        <div class="col-6 col-md-3">
+          <div class="kartu-pilihan" onclick="bukaHalaman('halaman-kenangan')">
+            <i class="fa-solid fa-camera ikon-pilihan"></i>
+            <h5>Kenangan Kita</h5>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="kartu-pilihan" onclick="bukaHalaman('halaman-ucapan')">
+            <i class="fa-solid fa-heart ikon-pilihan"></i>
+            <h5>Ucapan Sayang</h5>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="kartu-pilihan" onclick="bukaHalaman('halaman-lagu')">
+            <i class="fa-solid fa-music ikon-pilihan"></i>
+            <h5>Lagu Favorit</h5>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="kartu-pilihan" onclick="bukaHalaman('halaman-hadiah')">
+            <i class="fa-solid fa-gift ikon-pilihan"></i>
+            <h5>Hadiah 🎁</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KENANGAN KITA -->
+    <div id="halaman-kenangan" class="halaman">
+      <button class="tombol-kembali" onclick="bukaHalaman('halaman3')">KEMBALI <i class="fa-solid fa-reply"></i></button>
+      <h2 class="tulis-indah mb-4">Kenangan Indah Kita 📸🎬</h2>
+      
+      <div class="mb-4">
+        <div class="bingkai-video d-inline-block" style="width: 100%; max-width: 500px;">
+          <video width="100%" controls>
+            <source src="mp4/video kita mp4.mp4" type="video/mp4">
+            Maaf, peramban tidak mendukung video ini.
+          </video>
+          <p class="text-dark mt-2 mb-0 fw-bold">Momen Spesial Kita 💑💕</p>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-6 col-md-4">
+          <div class="bingkai-foto">
+            <img src="img/foto1.jpg.jpeg" alt="Foto 1">
+            <p class="text-dark mt-2 mb-0 fw-bold">Bersama Selalu 💕</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="bingkai-foto" style="transform: rotate(2deg);">
+            <img src="img/foto2.jpg.jpeg" alt="Foto 2">
+            <p class="text-dark mt-2 mb-0 fw-bold">Bahagia Bersamamu 🌸</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="bingkai-foto" style="transform: rotate(-4deg);">
+            <img src="img/foto3.jpg.jpeg" alt="Foto 3">
+            <p class="text-dark mt-2 mb-0 fw-bold">Kesayanganku ✨</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="bingkai-foto" style="transform: rotate(3deg);">
+            <img src="img/foto4.jpg.jpeg" alt="Foto 4">
+            <p class="text-dark mt-2 mb-0 fw-bold">Senyummu 😊</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="bingkai-foto" style="transform: rotate(-2deg);">
+            <img src="img/foto5.jpg.jpeg" alt="Foto 5">
+            <p class="text-dark mt-2 mb-0 fw-bold">Selamanya 💖</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="bingkai-foto" style="transform: rotate(4deg);">
+            <img src="img/foto6.jpg.jpeg" alt="Foto 6">
+            <p class="text-dark mt-2 mb-0 fw-bold">Hari Bahagia 🌷</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- UCAPAN SAYANG + 4 FOTO 📸 -->
+    <div id="halaman-ucapan" class="halaman">
+      <button class="tombol-kembali" onclick="bukaHalaman('halaman3')">KEMBALI <i class="fa-solid fa-reply"></i></button>
+      <h1 class="tulis-indah mb-3">Untuk Kamu, Sayang ❤️</h1>
+      <div class="kartu-lembut p-4 text-start bg-light text-dark shadow-lg mb-4">
+        <p class="lead">HAPPY MY GIRLFRIEND SAYANG. ❤️</p>
+        <p>
+          Di antara banyak hal yang membuatku bersyukur setiap hari, kamu selalu ada di urutan paling atas. 
+          Terima kasih sudah hadir dan membuat setiap hariku terasa lebih indah dan bermakna.
+        </p>
+        <p>
+          Terima kasih sudah menjadi tempat ternyaman untuk pulang, pendengar terbaik, dan alasan aku tersenyum setiap hari. 
+          Semoga kita bisa terus bersama melewati hari-hari yang indah ke depannya.
+        </p>
+        <p class="fw-bold text-end mt-4">Kamu akan selalu menjadi tempat ternyaman bagiku. ✨</p>
+      </div>
+      
+      <div class="row g-3">
+        <div class="col-6 col-md-3">
+          <div class="bingkai-foto">
+            <img src="img/pb.jpg" alt="Foto 1">
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="bingkai-foto" style="transform: rotate(2deg);">
+            <img src="img/pb2.jpg" alt="Foto 2">
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="bingkai-foto" style="transform: rotate(-2deg);">
+            <img src="img/pb3.jpg" alt="Foto 3">
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="bingkai-foto" style="transform: rotate(3deg);">
+            <img src="img/pb4.jppg.jpeg" alt="Foto 4">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LAGU FAVORIT -->
+    <div id="halaman-lagu" class="halaman">
+      <button class="tombol-kembali" onclick="bukaHalaman('halaman3')">KEMBALI <i class="fa-solid fa-reply"></i></button>
+      <h2 class="tulis-indah mb-4">Lagu Favorit Kita 🎵</h2>
+      <div class="row align-items-center">
+        <div class="col-md-7 mb-3">
+          <div class="bingkai-video ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/NAFhQEmkZBY" title="Tentang Dia - Melly Goeslaw" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="row g-2">
+            <div class="col-6">
+              <div class="bingkai-video overflow-hidden">
+                <img src="https://via.placeholder.com/150" class="img-fluid" alt="Kenangan 1">
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="bingkai-video overflow-hidden">
+                <img src="https://via.placeholder.com/150" class="img-fluid" alt="Kenangan 2">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HADIAH 🎁 -->
+    <div id="halaman-hadiah" class="halaman">
+      <button class="tombol-kembali" onclick="bukaHalaman('halaman3')">KEMBALI <i class="fa-solid fa-reply"></i></button>
+      <h2 class="tulis-indah mb-4">Hadiah Spesial Untukmu 🎁💖</h2>
+      <div class="kartu-lembut p-4 text-center">
+        <i class="fa-solid fa-gift fa-5x text-warning mb-4"></i>
+        <p class="fs-4">Maaf ya, aku cuma bisa kasih kamu hal sederhana 🥺💝</p>
+        <p class="fs-5">Tapi apapun itu, selalu aku usahakan untuk kamu 💪💕✨</p>
+        <p class="mt-4 fs-6">Semoga kamu suka ya 🥰🌹<br>
+        Dari orang yang sayang sama kamu 💑💖</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function bukaHalaman(idHalaman) {
+      document.querySelectorAll('.halaman').forEach(h => h.classList.remove('aktif'));
+      const halamanBaru = document.getElementById(idHalaman);
+      if (halamanBaru) {
+        halamanBaru.classList.add('aktif');
+        if(idHalaman === 'halaman3') {
+          document.querySelectorAll('.kartu-pilihan').forEach(kartu => {
+            kartu.style.animation = 'none';
+            kartu.offsetHeight;
+            kartu.style.animation = '';
+          });
+        }
+      }
+    }
+  </script>
+</body>
+</html>
